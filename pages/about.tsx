@@ -89,8 +89,8 @@ const About: FC = () => {
         <Spline
             ref={ ref }
             scene="https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" 
-            width={window.innerWidth || 100}
-            height={window.innerHeight || 100}
+            width={ 1000 }
+            height={ 500 }
             onMouseDown={ e => {
               
               if( e.target.name === "Cube 6" ) console.log( e.target.name ) 
