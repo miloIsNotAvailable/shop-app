@@ -7,5 +7,8 @@ export default defineConfig({
     babel: {
       plugins: ["@babel/plugin-syntax-import-meta"]    
     }
-  } )]
+  } )],
+  server: {
+    port: 5000
+  }
 })
