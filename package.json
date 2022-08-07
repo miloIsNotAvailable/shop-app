@@ -9,7 +9,7 @@
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.js ",
     "preview": "vite preview",
     "start": "node dist/server.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q --outDir/server.js\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q --outDir dist/server.js\""
   },
   "dependencies": {
     "@splinetool/loader": "^0.9.93",

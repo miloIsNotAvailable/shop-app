@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef } from "react";
-// import { Application } from '@splinetool/runtime'
+import { FC, useEffect, useRef, lazy } from "react";
+import { Application } from '@splinetool/runtime'
 import Spline from "@splinetool/react-spline";
+
 // import { 
 //   Color, 
 //   Euler, 
@@ -29,72 +30,23 @@ const About: FC = () => {
     useEffect( () => {
       if( !ref.current ) return
 
-        // // camera
-        // const camera = new OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -50000, 50000);
-        // camera.position.set(1.24, -19.24, 1000);
-        // camera.quaternion.setFromEuler(new Euler(0, 0, 0));
-
-        // // scene
-        // const scene = new Scene();
-
-        // // spline scene
-        // const loader = new SplineLoader();
-        // const e = loader.load(
-        //   'https://prod.spline.design/oHKsnqzT1nn3fRY8/scene.splinecode',
-        //   (splineScene: any) => {
-        //     scene.add(splineScene);
-        //   }
-        // );
-
-        // console.log( new Object3D().children )
-
-        // // renderer
-        // const renderer = new WebGLRenderer({ antialias: true });
-        // renderer.setSize(window.innerWidth, window.innerHeight);
-        // renderer.setAnimationLoop(animate);
-        // document.body.appendChild(renderer.domElement);
-
-        // // scene settings
-        // renderer.shadowMap.enabled = true;
-        // renderer.shadowMap.type = PCFShadowMap;
-
-        // scene.background = new Color('#ff8eee');
-        // renderer.setClearAlpha(1);
-
-        // // orbit controls
-        // // const controls = new OrbitControls(camera, renderer.domElement);
-        // // controls.enableDamping = true;
-        // // controls.dampingFactor = 0.125;
-
-        // window.addEventListener('resize', onWindowResize);
-        // function onWindowResize() {
-        //   camera.left = window.innerWidth / - 2;
-        //   camera.right = window.innerWidth / 2;
-        //   camera.top = window.innerHeight / 2;
-        //   camera.bottom = window.innerHeight / - 2;
-        //   camera.updateProjectionMatrix();
-        //   renderer.setSize(window.innerWidth, window.innerHeight);
-        // }
-
-        // function animate() {
-        //   // controls.update();
-        //   renderer.render(scene, camera);
-        // }
-
+        const app = new Application( ref.current )
+        app.load( "https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" )
+        .then( () => {
+          app.addEventListener( 'mouseDown', ( e ) => {
+            console.log( e.target.name )
+          } )
+        } )
 
     }, [ ref.current ] )
 
     return (
       <div>
-        <Spline
+        <canvas
             ref={ ref }
-            scene="https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" 
-            width={ 1000 }
-            height={ 500 }
-            onMouseDown={ e => {
-              
-              if( e.target.name === "Cube 6" ) console.log( e.target.name ) 
-            } }
+            // scene="https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" 
+            width={ window.innerWidth || 1000 }
+            height={ window.innerHeight || 500 }
         />
 
       </div>
