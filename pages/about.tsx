@@ -4,7 +4,7 @@ import Spline from '@splinetool/react-spline';
 const About: FC = () => {
 
     useEffect( () => {
-        fetch( '/api/hi', {
+        fetch( '/api/hello', {
             method: 'POST',
             body: JSON.stringify( { ye: 'ye' } )
         } )
