@@ -1,5 +1,5 @@
 
-export const handleRoutes = () => {
+const handleRoutes = () => {
 
     // @ts-ignore
     const __routes__: any = import.meta.globEager( '/api/**/[a-z[]*.ts' )
@@ -16,3 +16,5 @@ export const handleRoutes = () => {
     console.log( routes )  
     return routes
 }
+
+export default handleRoutes

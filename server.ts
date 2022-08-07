@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import express, { application } from 'express'
 import { createServer as createViteServer } from 'vite'
-import { handleRoutes } from './src/api_routes'
+// import { handleRoutes } from './src/api_routes'
 
 async function createServer() {
   const app = express()
@@ -25,7 +25,7 @@ async function createServer() {
   //   app.use( path, component )
   // })
 
-  app.use( '/api/hi', (req, res) => {
+  app.use( '/api/hello', (req, res) => {
     res.json( {say: "hello"} )
   } )
 
