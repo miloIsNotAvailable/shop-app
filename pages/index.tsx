@@ -1,11 +1,8 @@
 import { FC } from "react";
+import HomeComponent from '../components/home/build'
 
 const Home: FC = () => {
-    return (
-        <div>
-            hello
-        </div>
-    )
+    return <HomeComponent/>
 }
 
 export default Home

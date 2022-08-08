@@ -1,5 +1,6 @@
+import { AnimatePresence } from 'framer-motion'
 import { FC } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 
 const Home: FC = () => {
 
@@ -17,10 +18,12 @@ const Home: FC = () => {
       // this is a comment
       console.log( routes )      
 
+      const location = useLocation()
+      
     return (
         <div>
-            <BrowserRouter>
-                <Routes>
+            <AnimatePresence exitBeforeEnter>
+                <Routes location={ location } key={ location.pathname }>
                     { routes.map( ( { component: Component, path } ) =>(
                         <Route 
                             path={ path } 
@@ -29,7 +32,7 @@ const Home: FC = () => {
                         />
                     ) ) }
                 </Routes>
-            </BrowserRouter>
+            </AnimatePresence>
         </div>
     )
 }
