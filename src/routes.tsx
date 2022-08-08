@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import { FC } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import Navbar from '../components/navbar/build'
 
 const Home: FC = () => {
 
@@ -21,8 +22,9 @@ const Home: FC = () => {
       const location = useLocation()
       
     return (
-        <div>
+        <>
             <AnimatePresence exitBeforeEnter>
+                <Navbar/>
                 <Routes location={ location } key={ location.pathname }>
                     { routes.map( ( { component: Component, path } ) =>(
                         <Route 
@@ -33,7 +35,7 @@ const Home: FC = () => {
                     ) ) }
                 </Routes>
             </AnimatePresence>
-        </div>
+        </>
     )
 }
 

@@ -1,0 +1,75 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-self: center; */
+    width: calc(100%);
+    padding: 0 2rem;
+    height: 3rem;
+    background-color: var(--bg);
+}
+
+.navbar > * {
+    text-transform: uppercase;
+    font-family: 'Pangram Sans';
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar_wrap {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 3rem
+}
+
+.categories {
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    width: fit-content;
+    height: fit-content;
+    /* align-items: center; */
+    /* justify-content: flex-end; */
+}
+
+.category_list {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-auto-rows: 3rem;
+    text-align: left;
+    padding: 0rem;;
+    left: 0;
+    top: calc(100% + 1rem);
+    width: 20rem;
+    max-width: 20rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 10rem;
+    max-height: 0;
+    background-color: var(--bg);
+    border-radius: .5rem;
+    border: 0px solid rgba(255, 255, 255, .1);
+    font-size: .9rem;
+    transition: all 500ms ease;
+}
+
+.category_list::-webkit-scrollbar {
+    display: none;
+}
+
+.category_item {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    word-break: break-all;
+}
+
+.categories:active .category_list, .categories:focus .category_list {
+    max-height: 10rem;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, .1);
+}
