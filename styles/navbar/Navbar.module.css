@@ -1,11 +1,12 @@
 .navbar {
     display: grid;
+    place-items: end;
     flex-direction: row;
-    grid-template-columns: 70% 15% 15%;
+    grid-template-columns: calc( 70% ) 15% calc(15%);
     align-items: center;
     /* justify-self: center; */
-    width: calc(100%);
-    padding: 0 2rem;
+    width: calc(100% - 2rem);
+    /* padding: 0 2rem; */
     height: 3rem;
     background-color: var(--bg);
 }
@@ -13,7 +14,7 @@
 .navbar > * {
     text-transform: uppercase;
     font-family: 'Pangram Sans';
-    font-size: 1rem;
+    font-size: min( 2vw, 1rem );
     text-decoration: none;
     color: white;
 }
@@ -23,7 +24,8 @@
     display: flex;
     flex-direction: row;
     color: white;
-    gap: 3rem
+    gap: 3rem;
+    width: calc(100% - 2rem);
 }
 
 .categories {
@@ -75,12 +77,15 @@
     border: 2px solid rgba(255, 255, 255, .1);
 }
 
+.cart, .menu {
+    display: grid;
+    /* place-self: center; */
+    width: clamp( 1rem, 3vw, 3rem );
+    height: auto;
+}
+
 .menu {
     position: relative;
-    display: grid;
-    place-self: center;
-    width: 3vw;
-    height: auto;
 }
 
 .menu_popup {

@@ -20,16 +20,18 @@ async function createServer() {
   // if you use your own express router (express.Router()), you should use router.use
   app.use(vite.middlewares)
 
-  console.log( path.join( process.cwd(), '/api' ) )
+  // read all the files from directory
   let v: any = fs.readdirSync( path.join( process.cwd(), '/api' ) )
-
+  // remove file extention from file name
   v = v.map( async ( e: any ) => await import( './api/' + e.replace( /.ts/, "" ) ) )
 
   // @ts-ignore
   // console.log( import( "./api/*" ) )
 
+  // function inside for each cannot be async
   v.forEach( e => {
 
+    // hence async await inside app.use
     app.use( '/api/hello', async(req, res) => {
       const func = await e;
       func.default( req, res )
