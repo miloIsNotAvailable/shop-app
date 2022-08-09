@@ -1,6 +1,6 @@
 import { FC } from "react";
 import LinksMap from "../links/linksMap";
-import Menu from "../menu/Menu";
+import Menu from "../menu/build/Menu";
 import { styles } from './NavbarStyles'
 import Cart from '../cart'
 

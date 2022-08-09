@@ -76,8 +76,37 @@
 }
 
 .menu {
+    position: relative;
     display: grid;
     place-self: center;
     width: 3vw;
     height: auto;
+}
+
+.menu_popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 1rem;
+    padding: 0rem;;
+    right: calc(100% - 3vw);
+    top: calc(100% + 1rem);
+    width: 20rem;
+    max-width: 20rem;
+    overflow: hidden;
+    /* overflow-y: scroll; */
+    height: 10rem;
+    max-height: 0rem;
+    background-color: var(--bg);
+    border-radius: .5rem;
+    border: 0px solid rgba(255, 255, 255, .1);
+    font-size: .9rem;
+    transition: all 500ms ease;
+}
+
+.menu:active .menu_popup, .menu:focus .menu_popup {
+    max-height: 10rem;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, .1);
 }
