@@ -1,6 +1,7 @@
 .navbar {
-    display: flex;
+    display: grid;
     flex-direction: row;
+    grid-template-columns: 70% 15% 15%;
     align-items: center;
     /* justify-self: center; */
     width: calc(100%);
@@ -72,4 +73,11 @@
     max-height: 10rem;
     padding: 1rem;
     border: 2px solid rgba(255, 255, 255, .1);
+}
+
+.menu {
+    display: grid;
+    place-self: center;
+    width: 3vw;
+    height: auto;
 }

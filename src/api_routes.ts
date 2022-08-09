@@ -2,7 +2,7 @@
 const handleRoutes = () => {
 
     // @ts-ignore
-    const __routes__: any = import.meta.globEager( '/api/**/[a-z[]*.ts' )
+    const __routes__: any = import.meta.glob( '/api/**/[a-z[]*.ts' )
 
     const routes = Object.keys(__routes__).map((route) => {
         const path = route

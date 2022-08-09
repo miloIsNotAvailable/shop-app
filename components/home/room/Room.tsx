@@ -22,14 +22,15 @@ const Room: FC = () => {
     const navigate = useNavigate()
     useEffect( () => {
       if( !ref.current ) return
-
+      
         // load spline model, and connect it to the canvas
         const app = new Application( ref.current )
+        
         app.load( "https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" )
         .then( () => {          
           app.addEventListener( 'mouseDown', ( e ) => {
             e.target.name && navigate( "/" + e.target.name  )
-          } )
+            } )
         } )
 
     }, [ ref.current ] )

@@ -20,10 +20,22 @@ async function createServer() {
   // if you use your own express router (express.Router()), you should use router.use
   app.use(vite.middlewares)
 
-  // const routes = handleRoutes()
-  // routes.map( ( { component, path } ) => {
-  //   app.use( path, component )
-  // })
+  const filesMap = new Map()
+
+  console.log( path.join( process.cwd(), '/api' ) )
+  fs.readdir( path.join( process.cwd(), '/api' ), ( err, res ) => {
+    if( err ) throw err
+    res.forEach( async file => {
+        const file_name = file.replace( '.ts', "" );
+        const func = await import( './api/' + file_name )
+        // console.log( func?.default )
+        app.use( `/api/hello`, func.default )
+    } )
+
+  } )
+
+  // @ts-ignore
+  // console.log( import( "./api/*" ) )
 
   app.use( '/api/hello', (req, res) => {
     res.json( {say: "hello"} )
