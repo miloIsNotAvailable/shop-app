@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { fetchApi } from './api/fetchApi'
+import userUserDataSlice from './auth/userDataSlice'
 
 export const store = configureStore({
   reducer: {
-      [fetchApi.reducerPath]: fetchApi.reducer
+      [fetchApi.reducerPath]: fetchApi.reducer,
+      userData: userUserDataSlice
   },
   middleware: getDefaultMiddleware => 
   getDefaultMiddleware().concat( [ fetchApi.middleware ] )

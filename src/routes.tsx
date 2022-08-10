@@ -24,7 +24,7 @@ const Home: FC = () => {
     return (
         <>
             <AnimatePresence exitBeforeEnter>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <Routes location={ location } key={ location.pathname }>
                     { routes.map( ( { component: Component, path } ) =>(
                         <Route 
