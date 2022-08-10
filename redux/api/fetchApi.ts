@@ -4,14 +4,16 @@ export const fetchApi = createApi( {
     reducerPath: 'api',
     baseQuery: fetchBaseQuery( { 
         baseUrl: '/api' ,
-        headers: {
-            'Content-Type': 'application/javascript',
-            'Accept': 'application/javascript'
-        }
+        method: 'POST',
+        body: JSON.stringify( { ye: 'ye' } )
     } ),
     endpoints: ( { mutation, query } ) => ({
         getHello: query( {
-            query: () => '/hello'
+            query: () => ( {
+                url: '/hello',
+                method: 'POST',
+                body: JSON.stringify( { ye: 'ye' } )
+            } )
         } )
     })
 } )
