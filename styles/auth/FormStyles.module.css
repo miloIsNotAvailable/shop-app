@@ -32,8 +32,9 @@
 }
 
 .form_nav {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
     gap: 2rem;
     font-family: "Pangram Sans";
     text-transform: uppercase;

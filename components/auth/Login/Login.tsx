@@ -1,4 +1,5 @@
 import { FC } from "react";
+import CurrentState from "../build/CurrentState";
 import Email from "../build/Email";
 import { styles } from "../build/FormStyles";
 import Password from "../build/Password";
@@ -17,6 +18,7 @@ const Login: FC = () => {
                     link={ "/signup" }
                     name={ "signup" }
                 />
+                <CurrentState/>
             </div>
         </div>
     )

@@ -16,12 +16,9 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
         username: ""
     } )
 
-    const [ getAuthData, { data, isLoading, isError, error } ] = useAuthUserMutation()
-
-    useEffect( () => {
-        console.log( isError, isLoading )
-        console.log( data || error )
-    }, [ data, error, isError, isLoading ] )
+    const [ getAuthData ] = useAuthUserMutation( {
+        fixedCacheKey: 'login-data'
+    } )
 
     useEffect( () => {
         setFormError( ( prev: any ) => ({...prev, ...selector?.error}) )
@@ -34,9 +31,23 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
             type === "register" && formError?.email || formError?.password || formError?.username 
         ) return
 
-        type === "login"?
-        getAuthData({body: JSON.stringify( { type } )}):
-        console.log( selector.username, selector?.email, selector?.password  )
+        type === "login" ?
+        getAuthData({
+            body: JSON.stringify( { 
+                password: selector?.password,
+                email: selector?.email, 
+            } 
+            ),
+            url: '/login',
+        }): 
+        getAuthData({
+            body: JSON.stringify( { 
+                email: selector?.email, 
+                password: selector?.password,
+                username: selector?.username
+            } ),
+            url: '/signup',
+        })
     }
 
     return (

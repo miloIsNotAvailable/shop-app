@@ -15,9 +15,19 @@ export const fetchApi = createApi( {
                 body: JSON.stringify( { ye: 'ye' } )
             } )
         } ),
-        authUser: mutation<any, { body: string }>( {
-            query: ( { body } ) => ( {
-                url: '/login',
+        getRefreshToken: query( {
+            query: () => ( {
+                url: '/refresh_token',
+                method: 'POST',
+                body: JSON.stringify( {} )
+            } )
+        } ),
+        authUser: mutation<any, { 
+            body: string, 
+            url: string 
+        }>( {
+            query: ( { body, url } ) => ( {
+                url: url,
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -31,4 +41,5 @@ export const fetchApi = createApi( {
 export const { 
     useGetHelloQuery,
     useAuthUserMutation,
+    useGetRefreshTokenQuery
 } = fetchApi
