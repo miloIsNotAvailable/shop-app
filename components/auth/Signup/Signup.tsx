@@ -4,6 +4,7 @@ import { styles } from "../build/FormStyles";
 import Password from "../build/Password";
 import Redirect from "../build/Redirect";
 import Submit from "../build/Submit";
+import Username from "../build/Username";
 
 const Login: FC = () => {
 
@@ -11,11 +12,12 @@ const Login: FC = () => {
         <div className={ styles.page_wrap }>
             <Email/>
             <Password/>
+            <Username/>
             <div className={ styles.form_nav }>
-                <Submit type={ "login" }/>
+                <Submit type={ "register" }/>
                 <Redirect 
-                    link={ "/signup" }
-                    name={ "signup" }
+                    link={ "/login" }
+                    name={ "login" }
                 />
             </div>
         </div>

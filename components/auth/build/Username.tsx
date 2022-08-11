@@ -1,20 +1,20 @@
 import { ChangeEvent, FC, useEffect, useRef } from "react";
 import Input from "./Input";
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
-import { getUserEmail } from "../../../redux/auth/userDataSlice";
+import { getUserUsername } from "../../../redux/auth/userDataSlice";
 import { userDataState } from "../../../interfaces/reduxInterfaces";
 import { styles } from "./FormStyles";
 
-const Email: FC = () => {
+const Username: FC = () => {
 
     const inputRef = useRef<HTMLInputElement | null>( null )  
     const dispatch = useAppDispatch()
 
-    const selector = useAppSelector( ( state: userDataState ) => state.userData.error?.email )
+    const selector = useAppSelector( ( state: userDataState ) => state.userData.error?.username )
 
     useEffect( () => {
-        dispatch( getUserEmail( {
-            email: undefined
+        dispatch( getUserUsername( {
+            username: undefined
         } ) )
     }, [] )
 
@@ -23,8 +23,8 @@ const Email: FC = () => {
     = e => {
         // if( !inputRef.current ) return
 
-        dispatch( getUserEmail( {
-            email: e.target.value
+        dispatch( getUserUsername( {
+            username: e.target.value
         } ) )
     }
 
@@ -32,7 +32,7 @@ const Email: FC = () => {
         <div className={ styles.input_type_wrap }>
             <Input
                 // ref={ inputRef }
-                type={ "email" }
+                type={ "username" }
                 onChange={ handleDispatch }
             />
             { selector && 
@@ -43,4 +43,4 @@ const Email: FC = () => {
     ) 
 }
 
-export default Email
+export default Username

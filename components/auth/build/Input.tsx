@@ -22,6 +22,7 @@ const Input: FC<InputProps> = ( {
             <input
                 className={ styles.input }
                 // ref={ ref }
+                type={ type as string }
                 placeholder={ type as string }
                 onChange={ onChange }
             />

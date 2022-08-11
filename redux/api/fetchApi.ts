@@ -14,8 +14,21 @@ export const fetchApi = createApi( {
                 method: 'POST',
                 body: JSON.stringify( { ye: 'ye' } )
             } )
+        } ),
+        authUser: mutation<any, { body: string }>( {
+            query: ( { body } ) => ( {
+                url: '/login',
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
         } )
     })
 } )
 
-export const { useGetHelloQuery } = fetchApi
+export const { 
+    useGetHelloQuery,
+    useAuthUserMutation,
+} = fetchApi

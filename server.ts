@@ -4,9 +4,15 @@ import { fileURLToPath } from 'url'
 import express, { application } from 'express'
 import { createServer as createViteServer } from 'vite'
 // import { handleRoutes } from './src/api_routes'
+import bodyParser from 'body-parser'
 
 async function createServer() {
   const app = express()
+
+  app.use(bodyParser.urlencoded({ extended: false }))
+
+  // parse application/json
+  app.use(bodyParser.json())
 
   // Create Vite server in middleware mode and configure the app type as
   // 'custom', disabling Vite's own HTML serving logic so parent server

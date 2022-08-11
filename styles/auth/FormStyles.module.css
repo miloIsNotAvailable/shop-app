@@ -16,6 +16,33 @@
     color: white;   
 }
 
+.input_type_wrap {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: fit-content;
+    color: white;   
+}
+
+.input_error {
+    color: tomato;
+    font-family:  'Pangram Sans';
+    font-size: 1rem;
+}
+
+.form_nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-family: "Pangram Sans";
+    text-transform: uppercase;
+}
+
+.form_nav > * {
+    cursor: pointer
+}
+
 .input {
     outline: none;
     border: none;

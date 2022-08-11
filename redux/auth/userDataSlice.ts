@@ -46,7 +46,7 @@ const userDataSlice = createSlice( {
                 state.password = ""
                 return
             }
-
+            state.error!.password = undefined
             state.password = action.payload.password
         },
 
@@ -61,6 +61,7 @@ const userDataSlice = createSlice( {
                 return
             }
             
+            state.error!.username = undefined
             state.username = action.payload.username
         },
     }
