@@ -16,6 +16,22 @@
     color: white;   
 }
 
+.login_error, .login_loading {
+    display: grid;
+    place-self: center;
+    grid-column: 1/3;
+    font-size: .9rem;
+    text-transform: lowercase;
+}
+
+.login_error {
+    color: var(--red);
+}
+
+.login_loading {
+    color: white;
+}
+ 
 .input_type_wrap {
     position: relative;
     display: grid;

@@ -1,5 +1,6 @@
 import { FC, useEffect } from "react";
 import { useAuthUserMutation } from "../../../redux/api/fetchApi";
+import { styles } from "./FormStyles";
 
 const CurrentState: FC = () => {
 
@@ -20,13 +21,13 @@ const CurrentState: FC = () => {
 
 
     if( isLoading ) return (
-        <div>
+        <div className={ styles.login_loading }>
             loading...
         </div>
     )
 
     if( data?.error ) return (
-        <div>
+        <div className={ styles.login_error }>
             { data?.error }
         </div>
     )

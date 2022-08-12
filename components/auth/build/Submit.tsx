@@ -3,6 +3,7 @@ import { userDataState, userDataType } from "../../../interfaces/reduxInterfaces
 import { useAuthUserMutation, useGetRefreshTokenQuery } from "../../../redux/api/fetchApi";
 import { useAppSelector } from "../../../redux/hooks";
 import { useNavigate } from 'react-router-dom'
+import SubmitButton from '../../custom/Submit'
 
 interface SubmitProps {
     type: "login" | "register"
@@ -21,9 +22,13 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
         fixedCacheKey: 'login-data'
     } )
 
-    const { data: tokenData } = useGetRefreshTokenQuery( {} )
+    const { data: tokenData, isLoading: tokenLoading } = useGetRefreshTokenQuery( {} )
 
     const navigate = useNavigate()
+
+    useEffect( () => {
+        if( !tokenData?.error && !tokenLoading ) navigate( "/" )
+    }, [ tokenData, tokenLoading ] )
 
     useEffect( () => {
         setFormError( ( prev: any ) => ({...prev, ...selector?.error}) )
@@ -53,13 +58,12 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
             } ),
             url: '/signup',
         })
-        if( !tokenData?.error ) navigate( "/" )
     }
 
     return (
-        <div onClick={ handleSubmit }>
+        <SubmitButton onClick={ handleSubmit }>
             { type }
-        </div>
+        </SubmitButton>
     )
 }
 

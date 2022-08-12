@@ -60,12 +60,15 @@
     font-size: 1.4rem;
 }
 
-.form, .form::placeholder, .form_wrap::after, .form_wrap::before {
-    font-size: clamp( .5rem, 1rem, 1.4rem )
+.form_wrap::after, .form_wrap::before {
+    font-size: .7rem;
 }
 
 @media (max-width: 700px) {
     .form_wrap {
         width: calc( 100% - 4rem )
+    }    
+    .form_wrap::after, .form_wrap::before {
+        font-size: .5rem
     }
 }
