@@ -1,0 +1,1 @@
+export { default as styles } from '../../../styles/custom/CustomFormStyles.module.css' 

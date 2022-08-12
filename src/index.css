@@ -10,6 +10,8 @@
 
   --bg: #2D2D2D;
   --pink: #FF8FEE;
+  --red: #FF8F8F;
+  --white-10: rgba( 255, 255, 255, .1 );
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

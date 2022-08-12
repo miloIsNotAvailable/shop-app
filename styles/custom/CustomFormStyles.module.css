@@ -1,0 +1,71 @@
+.form_wrap {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 30vw;
+    height: 3rem;
+    color: white;   
+    background-color: var(--bg);
+    font-family: 'Pangram Sans';
+}
+
+.form_wrap::after {
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    content: attr(placeholder);
+    background-color: var(--bg);
+    width: fit-content;
+    padding: 0 .5rem;
+    height: fit-content;
+    color: var(--white-10);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form_wrap::before {
+    position: absolute;
+    bottom: -1rem;
+    left: 1rem;
+    content: attr(error);
+    background-color: var(--bg);
+    width: fit-content;
+    padding: 0 .5rem;
+    height: fit-content;
+    color: var(--red);
+    font-size: 1rem;
+    /* font-weight: bold; */
+}
+
+.form {
+    width: inherit;
+    height: 3rem;
+    background-color: var(--bg);
+    border: 2px solid var(--white-10);
+    border-radius: .4rem;
+    outline: none;
+    font-size: 1.5rem;
+    color: inherit;
+    padding: 0 1rem;
+    transition: all 100ms ease;
+}
+
+.form:invalid {
+    border: 2px solid var(--red)
+}
+
+.form::placeholder {
+    color: var(--white-10);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.form, .form::placeholder, .form_wrap::after, .form_wrap::before {
+    font-size: clamp( .5rem, 1rem, 1.4rem )
+}
+
+@media (max-width: 700px) {
+    .form_wrap {
+        width: calc( 100% - 4rem )
+    }
+}

@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { getUserPassword } from "../../../redux/auth/userDataSlice";
 import { userDataState } from "../../../interfaces/reduxInterfaces";
 import { styles } from "./FormStyles";
+import Form from "../../custom/Forms";
 
 const Password: FC = () => {
 
@@ -28,15 +29,17 @@ const Password: FC = () => {
 
     return (
     <div className={ styles.input_type_wrap }>
-        <Input
+        <Form
             // ref={ inputRef }
             type={ "password" }
+            placeholder={ "password" }
             onChange={ handleDispatch }
+            error={ selector }
         />
-        { selector && 
+        {/* { selector && 
         <div className={ styles.input_error }>
             { selector }
-        </div> }
+        </div> } */}
     </div>
     )
 }
