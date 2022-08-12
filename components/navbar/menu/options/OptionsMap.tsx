@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { styles } from "../../build/NavbarStyles";
 import Option from "./Options";
+import UserLogin from "./UserLogin";
 
 const OptionsMap: FC = () => {
 
     const arr = [
-        { name: 'login', link: '/login' },
+        { name: 'account', link: '/account' },
+        { name: 'sell item', link: '/sell' },
         { name: 'cart', link: '/cart' },
     ]
 
@@ -16,6 +18,7 @@ const OptionsMap: FC = () => {
                     <Option { ...v }/>
                 ) )
             }
+            <UserLogin/>
         </div>
     )
 }

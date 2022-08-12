@@ -4,7 +4,7 @@ import Navbar from "../components/navbar/build/Navbar";
 
 const Home: FC = () => {
     return <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <HomeComponent/>
     </> 
 }

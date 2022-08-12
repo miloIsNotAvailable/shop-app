@@ -17,6 +17,6 @@
     "outDir": "./dist",
     "jsx": "react-jsx"
   },
-  "include": ["src", "server.ts", "pages", "api", "prisma/client.ts", "components"],
+  "include": ["src", "server.ts", "pages", "api", "prisma/client.ts", "components", "hooks"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

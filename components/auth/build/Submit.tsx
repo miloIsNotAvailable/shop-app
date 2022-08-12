@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import { userDataState, userDataType } from "../../../interfaces/reduxInterfaces";
-import { useAuthUserMutation } from "../../../redux/api/fetchApi";
+import { useAuthUserMutation, useGetRefreshTokenQuery } from "../../../redux/api/fetchApi";
 import { useAppSelector } from "../../../redux/hooks";
+import { useNavigate } from 'react-router-dom'
 
 interface SubmitProps {
     type: "login" | "register"
@@ -16,9 +17,13 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
         username: ""
     } )
 
-    const [ getAuthData ] = useAuthUserMutation( {
+    const [ getAuthData, { data, isLoading } ] = useAuthUserMutation( {
         fixedCacheKey: 'login-data'
     } )
+
+    const { data: tokenData } = useGetRefreshTokenQuery( {} )
+
+    const navigate = useNavigate()
 
     useEffect( () => {
         setFormError( ( prev: any ) => ({...prev, ...selector?.error}) )
@@ -48,6 +53,7 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
             } ),
             url: '/signup',
         })
+        if( !tokenData?.error ) navigate( "/" )
     }
 
     return (

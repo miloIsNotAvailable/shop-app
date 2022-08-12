@@ -1,5 +1,6 @@
 import { FC, lazy, Suspense, useEffect } from "react";
 import { useGetRefreshTokenQuery } from "../../../redux/api/fetchApi";
+import Navbar from "../../navbar/build/Navbar";
 // import Room from "../room/Room";
 const Room = lazy(() => {
     return new Promise(resolve => setTimeout(resolve, 2000)).then(
@@ -9,25 +10,24 @@ const Room = lazy(() => {
 
 import Title from '../title'
 import { styles } from "./HomeStyles";
+import { AuthContextProvider } from '../../../contexts/AuthContext'
 
 const Home: FC = () => {
-
-    const { data, isLoading } = useGetRefreshTokenQuery( {} )
-    useEffect( () => {
-        console.log( data, isLoading )
-    }, [ isLoading, data ] )
-
+    
     return (
-        <div className={ styles.home_wrap }>
-            <Title/>
-            <Suspense fallback={ 
-                <div className={ styles.home_fallback }>
+        <>
+        <Navbar/>
+            <div className={ styles.home_wrap }>
+                <Title/>
+                <Suspense fallback={ 
+                    <div className={ styles.home_fallback }>
 
-                </div> 
-            }>
-                <Room/>
-            </Suspense>
-        </div>
+                    </div> 
+                }>
+                    <Room/>
+                </Suspense>
+            </div>
+        </>
     )
 }
 

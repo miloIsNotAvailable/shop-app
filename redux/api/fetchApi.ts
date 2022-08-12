@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const fetchApi = createApi( {
     reducerPath: 'api',
+    tagTypes: [ "refresh" ],
     baseQuery: fetchBaseQuery( { 
         baseUrl: '/api' ,
         method: 'POST',
@@ -16,6 +17,7 @@ export const fetchApi = createApi( {
             } )
         } ),
         getRefreshToken: query( {
+            providesTags: [ "refresh" ],
             query: () => ( {
                 url: '/refresh_token',
                 method: 'POST',
@@ -26,6 +28,7 @@ export const fetchApi = createApi( {
             body: string, 
             url: string 
         }>( {
+            invalidatesTags: [ "refresh" ],
             query: ( { body, url } ) => ( {
                 url: url,
                 method: "POST",
