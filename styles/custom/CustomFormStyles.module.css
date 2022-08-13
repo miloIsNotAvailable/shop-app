@@ -1,6 +1,8 @@
 .form_wrap {
     position: relative;
     display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
     place-items: center;
     width: 30vw;
     height: 3rem;
@@ -48,6 +50,8 @@
     color: inherit;
     padding: 0 1rem;
     transition: all 100ms ease;
+    resize: none;
+    font-family: "Pangram Sans";
 }
 
 .form:invalid {

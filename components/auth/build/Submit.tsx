@@ -18,7 +18,7 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
         username: ""
     } )
 
-    const [ getAuthData, { data, isLoading } ] = useAuthUserMutation( {
+    const [ getAuthData ] = useAuthUserMutation( {
         fixedCacheKey: 'login-data'
     } )
 
@@ -61,7 +61,10 @@ const Submit: FC<SubmitProps> = ( { type } ) => {
     }
 
     return (
-        <SubmitButton onClick={ handleSubmit }>
+        <SubmitButton 
+            onClick={ handleSubmit }
+            disabled={ formError?.email || formError?.password ? true : false }
+        >
             { type }
         </SubmitButton>
     )

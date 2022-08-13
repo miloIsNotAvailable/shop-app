@@ -1,0 +1,42 @@
+.sell_wrap {
+    display: grid;
+    place-self: center;
+    /* place-items: center; */
+    /* justify-content: space-around; */
+    grid-template-columns: 50% 50%; 
+    margin: auto;
+    width: calc( 100% - 4rem );
+    height: calc( 100vh - 3rem - 2rem );
+}
+
+.create_wrap {
+    display: flex;
+    flex-direction: column;
+    place-self: center;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.create_wrap > div > textarea[placeholder="description"]::placeholder {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* color: white; */
+    /* font-size: 1rem;; */
+}
+
+.create_wrap > div > textarea[placeholder="description"] {
+    height: 12rem;
+    /* color: tomato; */
+}
+
+.add_image {
+    display: grid;
+    place-self: end start;
+    width: calc(100% - 4rem);
+    height: calc(100% - 1rem);
+    /* aspect-ratio: 1; */
+    background-color: white;
+}
