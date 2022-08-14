@@ -28,15 +28,35 @@
 }
 
 .create_wrap > div > textarea[placeholder="description"] {
-    height: 12rem;
+    /* position: relative; */
+    height: clamp( 6rem, 10rem, 12rem );
     /* color: tomato; */
 }
 
 .add_image {
     display: grid;
     place-self: end start;
-    width: calc(100% - 4rem);
-    height: calc(100% - 1rem);
-    /* aspect-ratio: 1; */
+    width: auto;
+    height: calc(100% - 2rem);
+    aspect-ratio: 1;
     background-color: white;
+}
+
+@media (max-width: 950px) {
+    .sell_wrap {
+        width: 100%;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+        gap: 1rem;
+    }   
+    .create_wrap {
+        width: 100vw;
+        /* grid-row: 1; */
+    }
+    .add_image {
+        /* grid-row: 2; */
+        place-self: center;
+        width: calc(100% - 4rem);
+        height: 100%;
+    }
 }

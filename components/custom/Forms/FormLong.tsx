@@ -6,13 +6,13 @@ type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLI
 type TextAreaProps = DetailedHTMLProps<InputHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> & { error?: string }
 type editable = { editable?: boolean, long?: boolean }
 
-type combined = (InputProps & editable)
+type combined = (TextAreaProps & editable)
 
 const Form: FC<combined> = 
 ( args: combined ) => {
 
     const ref = useRef<HTMLDivElement | null>( null )
-    const inputRef = useRef<HTMLInputElement | null>( null )
+    const inputRef = useRef<HTMLTextAreaElement | null>( null )
 
     const { data, isLoading } = useAuth()
 
@@ -26,7 +26,7 @@ const Form: FC<combined> =
         inputRef.current.disabled = false
     }
 
-    if( args.long ) return (
+    return (
         <div 
             ref={ ref }
             className={ styles.form_wrap }
@@ -34,7 +34,7 @@ const Form: FC<combined> =
         >
             <textarea
                 
-                // ref={ inputRef }
+                ref={ inputRef }
                 disabled={ isLoading || args.editable }
                 // onBlur={ () => {
                 //     if( !inputRef.current || !args.editable ) return 
@@ -42,31 +42,6 @@ const Form: FC<combined> =
                 // } }
                 className={ styles.form }
                 { ...args as TextAreaProps }
-            />
-            { 
-            args.editable && 
-                <div onClick={ handleFocus }>
-                    edit
-                </div> 
-            }
-        </div>
-    )
-
-    return (
-        <div 
-            ref={ ref }
-            className={ styles.form_wrap }
-            placeholder={ args.type }   
-        >
-            <input 
-                ref={ inputRef }
-                disabled={ isLoading || args.editable }
-                onBlur={ () => {
-                    if( !inputRef.current || !args.editable ) return 
-                    inputRef.current.disabled = true
-                } }
-                className={ styles.form }
-                { ...args as combined | InputProps }
             />
             { 
             args.editable && 

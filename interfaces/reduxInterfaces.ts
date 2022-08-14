@@ -12,3 +12,20 @@ export type userDataType = {
 export type userDataState = {
     userData: userDataType
 }
+
+export type newItemType = {
+    title: string 
+    category: string 
+    desc: string 
+    price: string
+    error: {
+        title: string | undefined  
+        category: string | undefined 
+        desc: string | undefined 
+        price: string | undefined           
+    }
+}
+
+export type newItemState = {
+    newItemData: newItemType
+}
