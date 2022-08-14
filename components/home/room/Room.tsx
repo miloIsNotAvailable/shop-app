@@ -7,16 +7,6 @@ import { motion } from "framer-motion";
 
 const Room: FC = () => {
 
-    // test to see if api works
-    useEffect( () => {
-        fetch( '/api/hello', {
-            method: 'POST',
-            body: JSON.stringify( { ye: 'ye' } )
-        } )
-        .then( v => v.json() )
-        .then( console.log )
-    } )
-
     // get canvas
     const ref = useRef<HTMLCanvasElement | null>( null )
     const navigate = useNavigate()

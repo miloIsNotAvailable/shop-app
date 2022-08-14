@@ -24,8 +24,8 @@ const ItemCategory: FC = () => {
     }
 
     return <Form 
-        placeholder={ 'price' }
-        type={ "price (USD)" }
+        placeholder={ 'category' }
+        type={ "category" }
         // disabled={ isLoading }
         onChange={ dispatchOnChange }
         error={ selectDetails.error.category }

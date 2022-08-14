@@ -8,18 +8,13 @@ import { styles } from "../build/SellStyles";
 import Desc from "./Desc";
 import ItemCategory from "./ItemCategory";
 import Price from "./Price";
+import Submit from "./Submit";
 import Title from "./Title";
 
 const Create: FC = () => {
 
     const { data, isLoading } = useAuth()
     const navigate = useNavigate()
-
-    const selectDetails = useAppSelector( ( state: newItemState ) => state.newItemData )
-
-    useEffect( () => {
-        console.log( selectDetails )
-    }, [ selectDetails ] )
 
     useEffect( () => {
         if( !isLoading && !data?.cookie ) navigate( "/login" )
@@ -31,6 +26,7 @@ const Create: FC = () => {
             <Price/>
             <ItemCategory/>
             <Desc/>
+            <Submit/>
         </div>
     )
 }

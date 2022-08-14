@@ -18,11 +18,12 @@
     justify-content: center;
 }
 
-.create_wrap > div > textarea[placeholder="description"]::placeholder {
-    position: absolute;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+.create_wrap > div {
+    /* position: absolute; */
+    /* display: flex; */
+    /* align-items: flex-start; */
+    /* justify-content: flex-start; */
+    height: auto;
     /* color: white; */
     /* font-size: 1rem;; */
 }
@@ -42,6 +43,16 @@
     background-color: white;
 }
 
+.submit_wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Pangram Sans';
+    font-size: 1rem;
+}
+
 @media (max-width: 950px) {
     .sell_wrap {
         width: 100%;
@@ -52,11 +63,5 @@
     .create_wrap {
         width: 100vw;
         /* grid-row: 1; */
-    }
-    .add_image {
-        /* grid-row: 2; */
-        place-self: center;
-        width: calc(100% - 4rem);
-        height: 100%;
     }
 }
