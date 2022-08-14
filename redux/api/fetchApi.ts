@@ -37,6 +37,17 @@ export const fetchApi = createApi( {
                 },
                 body
             } )
+        } ),
+        getNewItem: mutation<any, string>( {
+            // invalidatesTags: [ "refresh" ],
+            query: ( body ) => ( {
+                url: "/sell_item",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
         } )
     })
 } )
@@ -44,5 +55,6 @@ export const fetchApi = createApi( {
 export const { 
     useGetHelloQuery,
     useAuthUserMutation,
-    useGetRefreshTokenQuery
+    useGetRefreshTokenQuery,
+    useGetNewItemMutation
 } = fetchApi

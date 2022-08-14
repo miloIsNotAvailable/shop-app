@@ -18,11 +18,13 @@ export type newItemType = {
     category: string 
     desc: string 
     price: string
+    image: string
     error: {
         title: string | undefined  
         category: string | undefined 
         desc: string | undefined 
-        price: string | undefined           
+        price: string | undefined  
+        image: string | undefined         
     }
 }
 

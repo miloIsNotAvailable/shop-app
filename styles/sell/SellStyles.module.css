@@ -35,12 +35,32 @@
 }
 
 .add_image {
+    cursor: pointer;
+    position: relative;
     display: grid;
     place-self: end start;
+    place-items: center;
     width: auto;
     height: calc(100% - 2rem);
     aspect-ratio: 1;
     background-color: white;
+    color: var(--bg);
+    font-size: 5em;
+}
+
+.add_image > img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.add_image > input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .submit_wrap {

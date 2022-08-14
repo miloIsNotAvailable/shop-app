@@ -7,11 +7,13 @@ const initialState: newItemType = {
     desc: "",
     price: "",
     title: "",
+    image: "",
     error: {
         category: undefined,
         desc: undefined,
         price: undefined,
         title: undefined,
+        image: undefined,
     }
 }
 
@@ -81,6 +83,22 @@ const newItemSlice = createSlice( {
             state.error!.category = undefined
             state.category = action.payload.category
         },
+
+        getImage: (
+            state: Partial<newItemType>,
+            action: PayloadAction<Partial<newItemType>>
+        ) => {
+            // const valid = categories.find( category => category === action.payload.category )
+            
+            if( !action.payload.image ) {
+                state.error!.image = 'provide image'
+                state.image = ""
+                return
+            }
+            
+            state.error!.image = undefined
+            state.image = action.payload.image
+        },
     }
 } )
 
@@ -88,7 +106,8 @@ export const {
     getCategory,
     getPrice,
     getTitle,
-    getDesc
+    getDesc,
+    getImage
 } = newItemSlice.actions
 
 export default newItemSlice.reducer
