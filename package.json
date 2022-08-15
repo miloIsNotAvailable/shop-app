@@ -33,6 +33,7 @@
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "three": "^0.143.0",
+    "uuidv4": "^6.2.13",
     "vite-plugin-svgr": "^2.2.1"
   },
   "devDependencies": {

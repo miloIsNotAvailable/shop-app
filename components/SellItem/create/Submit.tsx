@@ -25,9 +25,10 @@ const Submit: FC = () => {
             desc, 
             price, 
             title,
+            image,
             id: data?.decoded?.id
         } ) )
-        console.log( category, desc, price, title, image )
+        // console.log( category, desc, price, title, image )
     }
 
     return (

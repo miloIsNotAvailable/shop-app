@@ -9,10 +9,10 @@ import bodyParser from 'body-parser'
 async function createServer() {
   const app = express()
 
-  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }))
 
   // parse application/json
-  app.use(bodyParser.json())
+  app.use(bodyParser.json( { limit: '50mb' } ))
 
   // Create Vite server in middleware mode and configure the app type as
   // 'custom', disabling Vite's own HTML serving logic so parent server
