@@ -1,7 +1,7 @@
 .home_wrap {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 40vh 100vh 40vh;
+    grid-template-rows: 25vh calc(75vh - 3rem);
 }
 
 .home_fallback {
@@ -11,8 +11,8 @@
 }
 
 .canvas_wrap {
-    /* position: absolute; */
-    /* top: 10rem; */
+    /* position: fixed; */
+    /* top: calc( 40vh - 3rem ); */
     display: grid;
     width: 100%;
     height: 100%;

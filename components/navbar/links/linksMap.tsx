@@ -6,7 +6,7 @@ import Categories from "./Categories";
 const LinksMap: FC = () => {
 
     const arr = [
-        { name: 'home', link: '/home' },
+        { name: 'home', link: '/' },
         { name: 'new', link: '/new' },
     ]
 

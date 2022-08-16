@@ -48,7 +48,18 @@ export const fetchApi = createApi( {
                 },
                 body
             } )
-        } )
+        } ),
+        queryCategoryItems: query<any, string>( {
+            // invalidatesTags: [ "refresh" ],
+            query: ( body ) => ( {
+                url: "/category_item",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
+        } ),
     })
 } )
 
@@ -56,5 +67,6 @@ export const {
     useGetHelloQuery,
     useAuthUserMutation,
     useGetRefreshTokenQuery,
-    useGetNewItemMutation
+    useGetNewItemMutation,
+    useQueryCategoryItemsQuery
 } = fetchApi

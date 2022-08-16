@@ -41,7 +41,7 @@ const Room: FC = () => {
             ref={ ref }
             // scene="https://prod.spline.design/CC2m5QPKtUULORZk/scene.splinecode" 
             width={ window.innerWidth - 2 * 16 * 2 }
-            height={ window.innerHeight }
+            height={ window.innerHeight * .75 - 3 * 16 }
         />
 
       </motion.div>
