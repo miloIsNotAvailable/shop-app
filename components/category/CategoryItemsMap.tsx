@@ -12,6 +12,10 @@ const CategoryItemsMap: FC<CategoryItemsMapProps> = ( { arr } ) => {
 
     // const arr = Array( 10 ).fill( 0 )  
 
+    if( arr.length === 0 ) return (
+        <div>nothing to see here...</div>
+    )
+
     return (
         <div className={ styles.item_display_wrap }>
             { arr.map( ( { image, title, price, id } ) => (

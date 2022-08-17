@@ -44,6 +44,12 @@ const newItemSlice = createSlice( {
                 state.price = ""
                 return
             }
+
+            if( isNaN( Number( valid ) ) ) {
+                state.error!.price = 'invalid price'
+                state.price = ""
+                return
+            }
             state.error!.price = undefined
             state.price = action.payload.price
         },
