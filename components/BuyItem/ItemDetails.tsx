@@ -1,3 +1,4 @@
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import { Item } from "@prisma/client";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,13 +7,14 @@ import ItemDetailsNavbar from "./ItemDetailsNavbar";
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, keyof K>>
 
-const ItemDetails: FC<Omit<Item, keyof {image: string}>> = ( {
+const ItemDetails: FC<Omit<Item & { email: string | undefined }, keyof {image: string}>> = ( {
     category,
     desc,
     id,
     owner_id, 
     price,
-    title
+    title,
+    email
 } ) => {
 
     return (
@@ -26,7 +28,7 @@ const ItemDetails: FC<Omit<Item, keyof {image: string}>> = ( {
             <div>
                 price-${ price }
             </div>
-            <ItemDetailsNavbar/>
+            <ItemDetailsNavbar email={ email} />
         </div>
     )
 }

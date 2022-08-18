@@ -11,8 +11,14 @@ export default async function handler( req: Request, res: Response ) {
             where: { id }
         } )
         
+        const user_email = await prisma.user.findUnique( {
+            where: {
+                id: data?.owner_id
+            }
+        } )
+
         console.log( data )
-        res.json( data )
+        res.json( { ...data, email: user_email?.email } )
 
     } catch( e ) {  
         console.log( e ) 

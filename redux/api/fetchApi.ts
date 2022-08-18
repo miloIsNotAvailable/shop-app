@@ -72,6 +72,18 @@ export const fetchApi = createApi( {
                 body
             } )
         } ),
+
+        getPayment: mutation<any, string>( {
+            // invalidatesTags: [ "refresh" ],
+            query: ( body ) => ( {
+                url: "/create_client_payment_intent",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
+        } ),
     })
 } )
 
@@ -81,5 +93,6 @@ export const {
     useGetRefreshTokenQuery,
     useGetNewItemMutation,
     useQueryCategoryItemsQuery,
-    useGetItemQuery
+    useGetItemQuery,
+    useGetPaymentMutation
 } = fetchApi
