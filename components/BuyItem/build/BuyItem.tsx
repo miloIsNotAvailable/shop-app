@@ -1,11 +1,11 @@
 import { Item } from '@prisma/client'
 import { FC, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemProvider, Nullable } from '../../contexts/ItemContext'
-import { useGetItemQuery } from '../../redux/api/fetchApi'
+import { ItemProvider, Nullable } from '../../../contexts/ItemContext'
+import { useGetItemQuery } from '../../../redux/api/fetchApi'
 import { styles } from './BuyItemStyles'
-import ItemDetails from './ItemDetails'
-import ItemImage from './ItemImage'
+import ItemDetails from '../details/ItemDetails'
+import ItemImage from '../details/ItemImage'
 
 const BuyItem: FC = () => {
 

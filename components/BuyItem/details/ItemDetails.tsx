@@ -1,10 +1,7 @@
-import { PayPalButtons } from "@paypal/react-paypal-js";
-import { Item } from "@prisma/client";
 import { FC } from "react";
-import { useNavigate } from "react-router-dom";
-import { useItem } from "../../contexts/ItemContext";
-import { styles } from "./BuyItemStyles";
-import ItemDetailsNavbar from "./ItemDetailsNavbar";
+import { useItem } from "../../../contexts/ItemContext";
+import { styles } from "../build/BuyItemStyles";
+import ItemDetailsNavbar from "../navbar/ItemDetailsNavbar";
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, keyof K>>
 
@@ -23,7 +20,7 @@ const ItemDetails: FC = () => {
             <div>
                 price-${ price }
             </div>
-            <ItemDetailsNavbar email={ email} />
+            <ItemDetailsNavbar/>
         </div>
     )
 }

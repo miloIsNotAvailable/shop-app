@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { styles } from "./BuyItemStyles";
+import { styles } from "../build/BuyItemStyles";
 
 interface ItemImageProps {
     link: string
