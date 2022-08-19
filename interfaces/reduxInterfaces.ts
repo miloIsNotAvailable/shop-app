@@ -1,3 +1,6 @@
+import { Item } from "@prisma/client"
+import { Nullable } from "../contexts/ItemContext"
+
 export type userDataType = {
     email?: string
     password?: string
@@ -30,4 +33,10 @@ export type newItemType = {
 
 export type newItemState = {
     newItemData: newItemType
+}
+
+export type addToCartType = {
+    item: Nullable<Item & {email: string}>,
+    items: (Nullable<Item & {email: string}>)[]
+    inCart: boolean
 }

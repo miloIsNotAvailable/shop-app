@@ -84,6 +84,21 @@
     height: auto;
 }
 
+.cart { position: relative }
+
+.cart[placeholder]:not(.cart[placeholder = "0"])::after {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    content: attr( placeholder);
+    top: 50%;
+    left: 50%;
+    background-color: var(--red);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
 .menu {
     position: relative;
 }
