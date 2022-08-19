@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const fetchApi = createApi( {
     reducerPath: 'api',
-    tagTypes: [ "refresh" ],
+    tagTypes: [ "refresh", "category" ],
     baseQuery: fetchBaseQuery( { 
         baseUrl: '/api' ,
         method: 'POST',
@@ -51,6 +51,7 @@ export const fetchApi = createApi( {
         } ),
         queryCategoryItems: query<any, string>( {
             // invalidatesTags: [ "refresh" ],
+            providesTags: [ "category" ],
             query: ( body ) => ( {
                 url: "/category_item",
                 method: "POST",
@@ -74,7 +75,7 @@ export const fetchApi = createApi( {
         } ),
 
         getPayment: mutation<any, string>( {
-            // invalidatesTags: [ "refresh" ],
+            invalidatesTags: [ "category" ],
             query: ( body ) => ( {
                 url: "/create_client_payment_intent",
                 method: "POST",

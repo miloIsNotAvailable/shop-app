@@ -2,20 +2,15 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 import { Item } from "@prisma/client";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import { useItem } from "../../contexts/ItemContext";
 import { styles } from "./BuyItemStyles";
 import ItemDetailsNavbar from "./ItemDetailsNavbar";
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, keyof K>>
 
-const ItemDetails: FC<Omit<Item & { email: string | undefined }, keyof {image: string}>> = ( {
-    category,
-    desc,
-    id,
-    owner_id, 
-    price,
-    title,
-    email
-} ) => {
+const ItemDetails: FC = () => {
+
+    const { desc, price, email, title } = useItem()
 
     return (
         <div className={ styles.item_details_wrap }>

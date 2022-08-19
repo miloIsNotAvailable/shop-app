@@ -1,7 +1,9 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { useItem } from "../../contexts/ItemContext";
+import { useGetPaymentMutation } from "../../redux/api/fetchApi";
 import SubmitButton from "../custom/Submit/Submit";
 import { styles } from "./BuyItemStyles";
 
@@ -14,6 +16,18 @@ const ItemDetailsNavbar: FC<ItemDetailsNavbarProps> = ( { email } ) => {
     const navigate = useNavigate()
 
     const { data } = useAuth()
+    const [ getPaymentIntent, { data: paypalData, isLoading: transactionFetching } ] = useGetPaymentMutation()
+    const { id, owner_id } = useItem()
+
+    const handlePayment = async( data: any, actions: any ) => {
+        if( !id ) return
+        getPaymentIntent( JSON.stringify( {
+           id, owner_id 
+        } ) )
+
+        if( !transactionFetching || !paypalData?.error ) navigate( -1 )
+        return actions.order.capture()
+    }
 
     const handleOrder: 
     ( orderData: any, action: any ) => any
@@ -50,8 +64,10 @@ const ItemDetailsNavbar: FC<ItemDetailsNavbarProps> = ( { email } ) => {
                 go back
             </div>
             <PayPalButtons 
+                disabled={ !id || transactionFetching || !data?.cookie }
                 style={{ layout: 'horizontal' }}
                 createOrder={ handleOrder }
+                onApprove={ handlePayment }
             />
         </div>
     )

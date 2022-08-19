@@ -1,27 +1,19 @@
 import { Request, Response } from "express";
 import { prisma } from "../prisma/client";
-import Stripe from 'stripe'
 
 export default async function handler( req: Request, res: Response ) {
 
     try {
         
-        // const { items } = req.body as { items: any }
-        const stripe = new Stripe( "sk_test_7mJuPfZsBzc3JkrANrFrcDqC", { 
-            apiVersion: "2022-08-01",
-            typescript: true
+        const { id } = req.body as { id: string, owner_id: string }
+
+        const data = await prisma.item.delete( {
+            where: {
+                id
+            }
         } )
 
-        const params: Stripe.CustomerCreateParams = {
-        description: 'test customer',
-        };
-    
-        const customer: any = await stripe.customers.create(params);
-        
-        console.log( customer.default_source )
-        
-        // console.log( data )
-        res.json( { clientSecret: customer?.client_secret } )
+        res.json( data )
 
     } catch( e ) {  
         console.log( e ) 
