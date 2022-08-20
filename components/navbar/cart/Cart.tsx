@@ -1,5 +1,6 @@
 import { Item } from '@prisma/client'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Nullable } from '../../../contexts/ItemContext'
 import { default as CartIcon } from '../../../graphics/cart.svg'
 import { styles } from '../build/NavbarStyles'
@@ -15,9 +16,13 @@ const Cart: FC = () => {
     } )
 
     return (
-        <div className={ styles.cart } placeholder={ `${addItem.length}` }>
+        <Link
+            to={ "/cart" } 
+            className={ styles.cart } 
+            placeholder={ `${addItem.length}` }
+        >
             <img src={ CartIcon }/>
-        </div>
+        </Link>
     )
 }
 

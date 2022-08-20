@@ -2,6 +2,7 @@ import { Item } from "@prisma/client";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import { Nullable, useItem } from "../../../contexts/ItemContext";
+import { addToCart } from "../../../redux/cartSlice/cartSlice";
 import { useAppDispatch } from "../../../redux/hooks";
 import SubmitButton from "../../custom/Submit/Submit";
 
@@ -19,6 +20,7 @@ const AddToCart: FC = () => {
 
     const item = useItem()
     const { data, isLoading } = useAuth()
+    const dispatch = useAppDispatch()
 
     useEffect( () => {
         setIsInCart( !!addItem.find( ( { id } ) => id === item.id ) )

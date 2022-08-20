@@ -9,8 +9,8 @@
     height: 100vh;
 }
 
-.category_title {
-    display: flex;
+.cart_title {
+    display: grid;
     width: fit-content;
     height: fit-content;
     margin: 3rem 2rem;

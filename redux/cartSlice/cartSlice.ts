@@ -4,9 +4,6 @@ import { categories } from '../../constants/categories'
 import { useAppSelector } from '../hooks'
 import { RootState } from '../store'
 
-// const cache = localStorage.getItem( "cart" )
-// const arr = cache && JSON.parse( cache ) || []
-
 const initialState: addToCartType = {
     item: {
         category: undefined,
@@ -38,8 +35,11 @@ const addToCartSlice = createSlice( {
                 return
             }
             
+            const cache = typeof window !== "undefined" && localStorage.getItem( "cart" )
+            const arr = cache && JSON.parse( cache ) || []
+
             state.inCart = false
-            state.items = action.payload.items
+            state.items = action.payload.items || arr
         },
     }
 } )
