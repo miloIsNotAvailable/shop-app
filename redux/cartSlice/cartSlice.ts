@@ -29,17 +29,9 @@ const addToCartSlice = createSlice( {
             action: PayloadAction<Partial<addToCartType>>
         ) => {
 
-            const isInCart = !!(action.payload.items && action.payload.items.find( ( { id } ) => id === action.payload.item?.id  ))
-            if( isInCart ) {
-                state.inCart = isInCart
-                return
-            }
-            
-            const cache = typeof window !== "undefined" && localStorage.getItem( "cart" )
-            const arr = cache && JSON.parse( cache ) || []
-
-            state.inCart = false
-            state.items = action.payload.items || arr
+            state.inCart = action.payload.inCart
+            state.item = action.payload.item
+            state.items = action.payload.items
         },
     }
 } )

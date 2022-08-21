@@ -85,6 +85,18 @@ export const fetchApi = createApi( {
                 body
             } )
         } ),
+
+        getNewest: query<any, string>( {
+            // invalidatesTags: [ "category" ],
+            query: ( body ) => ( {
+                url: "/newest",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
+        } ),
     })
 } )
 
@@ -95,5 +107,6 @@ export const {
     useGetNewItemMutation,
     useQueryCategoryItemsQuery,
     useGetItemQuery,
-    useGetPaymentMutation
+    useGetPaymentMutation,
+    useGetNewestQuery
 } = fetchApi
