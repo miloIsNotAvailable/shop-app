@@ -95,8 +95,8 @@
     left: 50%;
     background-color: var(--red);
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    width: clamp( 1rem, 3vw, 2rem );;
+    height: clamp( 1rem, 3vw, 2rem );;
 }
 
 .menu {
