@@ -109,6 +109,18 @@ export const fetchApi = createApi( {
                 body
             } )
         } ),
+
+        updateUser: mutation<any, string>( {
+            // invalidatesTags: [ "category" ],
+            query: ( body ) => ( {
+                url: "/update_user",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body
+            } )
+        } ),
     })
 } )
 
@@ -121,5 +133,6 @@ export const {
     useGetItemQuery,
     useGetPaymentMutation,
     useGetNewestQuery,
-    useUserItemsQuery
+    useUserItemsQuery,
+    useUpdateUserMutation
 } = fetchApi
