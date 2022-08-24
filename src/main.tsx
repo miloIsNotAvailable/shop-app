@@ -7,7 +7,7 @@ import { store } from '../redux/store'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 if( typeof window !== "undefined" ) {
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  ReactDOM.hydrateRoot(document.getElementById('root') as HTMLElement,
     // <React.StrictMode>
     <PayPalScriptProvider options={ { 
       "client-id": "AQtgo9nGuUjugdLm2Yk_--EzIPOsQCmP8ki_TUe4gq0Oh_Sj5c8UONC9Gzk4z_L_JSdMPToaAh8dQXh8",
