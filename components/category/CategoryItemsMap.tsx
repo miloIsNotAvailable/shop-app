@@ -17,7 +17,7 @@ const CategoryItemsMap: FC<CategoryItemsMapProps> = ( { arr } ) => {
     )
 
     return (
-        <AnimatePresence>
+        // <AnimatePresence exitBeforeEnter>
         <div className={ styles.item_display_wrap }>
             { arr.map( ( { image, title, price, id }, ind: number ) => (
             <motion.div
@@ -38,7 +38,7 @@ const CategoryItemsMap: FC<CategoryItemsMapProps> = ( { arr } ) => {
             </motion.div>
             ) ) }
         </div>
-        </AnimatePresence>
+        // </AnimatePresence>
     )
 }
 

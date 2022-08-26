@@ -11,7 +11,7 @@
 }
 
 .canvas_wrap {
-    /* position: fixed; */
+    position: relative;
     /* top: calc( 40vh - 3rem ); */
     display: grid;
     width: 100%;

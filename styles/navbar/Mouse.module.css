@@ -1,0 +1,19 @@
+.mouse {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 100;
+    color: var(--bg);
+    font-family: 'Pangram Sans';
+    font-size: .5rem;
+}
+
+@media ( max-width: 500px ) {
+    .mouse {
+        visibility: collapse;
+    }
+}

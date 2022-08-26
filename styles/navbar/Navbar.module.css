@@ -41,14 +41,14 @@
 .category_list {
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: 10rem;
     grid-auto-rows: 3rem;
     text-align: left;
     padding: 0rem;;
     left: 0;
     top: calc(100% + 1rem);
-    width: 20rem;
-    max-width: 20rem;
+    width: clamp( 5rem, 10rem, 20rem );
+    max-width: clamp( 5rem, 10rem, 20rem );
     overflow: hidden;
     overflow-y: scroll;
     height: 10rem;
@@ -58,6 +58,7 @@
     border: 0px solid rgba(255, 255, 255, .1);
     font-size: .9rem;
     transition: all 500ms ease;
+    z-index: 4;
 }
 
 .category_list::-webkit-scrollbar {
